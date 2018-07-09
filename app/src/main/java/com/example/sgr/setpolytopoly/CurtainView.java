@@ -188,10 +188,10 @@ public class CurtainView extends View {
 
                 downPoint = new Point2(pointX, pointY);
                 besidePoint = null;//该点与点击点最近的点
-                if (pointArr.length != 0) {
+                if (pointPaintArr.length != 0) {
                     double minDis = 0;
                     double tmpDis = 0;
-                    for (Point2 p : pointArr) { //第一个点
+                    for (Point2 p : pointPaintArr) { //第一个点
                         if (besidePoint == null) {
                             besidePoint = p;
                             minDis = distanceBetween(p, downPoint);
@@ -221,7 +221,7 @@ public class CurtainView extends View {
                     if (position != -1) {
                         besidePoint.x = orgBesidePoint.x + (event.getX() - downX);
                         besidePoint.y = orgBesidePoint.y + (event.getY() - downY);
-                        pointArr[position] = new Point2(besidePoint.x, besidePoint.y);
+                        pointArr[position] = new Point2( pointArr[position].x+ (event.getX() - downX),  pointArr[position].y+ (event.getY() - downY));
                         pointPaintArr[position] = new Point2(besidePoint.x, besidePoint.y);
                     }
 
